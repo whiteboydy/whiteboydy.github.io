@@ -19,6 +19,12 @@
 ]]></content>
   </entry>
   <entry>
+    <title>java</title>
+    <url>/2023/02/11/java/</url>
+    <content><![CDATA[<p><img src="/2023/02/11/java/alxx2-cqhsz.png" alt="sd"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>redis</title>
     <url>/2023/02/11/redis/</url>
     <content><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p><em><strong>Redis</strong></em> 是典型的 <em><strong>NoSQL</strong></em> 数据库。</p>
@@ -50,7 +56,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
 <p>默认安装在 <code>/usr/local/bin</code></p>
-<p>![2021-10-21 22.16.18](.&#x2F;redis&#x2F;2021-10-21 22.16.18.png)</p>
+<p><img src="/2023/02/11/redis/18.png" alt="ss"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis-benchmark：性能测试工具，可以在自己本子运行，看看自己本子性能如何</span><br><span class="line">redis-check-aof：修复有问题的AOF文件，rdb和aof后面讲</span><br><span class="line">redis-check-dump：修复有问题的dump.rdb文件</span><br><span class="line">redis-sentinel：Redis集群使用</span><br><span class="line">redis-server：Redis服务器启动命令</span><br><span class="line">redis-cli：客户端，操作入口</span><br></pre></td></tr></table></figure>
 
 
@@ -68,7 +74,7 @@
 <li><p>修改 <em><strong>&#x2F;etc&#x2F;redis.conf</strong></em> 配置文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim redis.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># daemonize no 修改为 daemonize yes</span></span><br></pre></td></tr></table></figure>
 
-<img src="https://gitee.com/tsuiraku/typora/raw/master/img/%E6%88%AA%E5%B1%8F2021-10-21%2022.55.41.png" style="zoom:50%;">
+<p><img src="/2023/02/11/redis/20211021.png" alt="s"></p>
 </li>
 <li><p><em><strong>&#x2F;usr&#x2F;local&#x2F;bin</strong></em> 目录下启动 <em><strong>redis</strong></em></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">redis-server /etc/redis.conf</span><br></pre></td></tr></table></figure></li>
@@ -911,10 +917,9 @@
 </li>
 </ul>
 <h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>$###################\space to \space do\space ###################$</p>
-<p>​	<a href="https://www.bilibili.com/video/BV1Rv41177Af">https://www.bilibili.com/video/BV1Rv41177Af</a>)</p>
+<h1 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h1><ul>
+<li><a href="https://www.bilibili.com/video/BV1Rv41177Af">尚硅谷-王老师</a></li>
+</ul>
 ]]></content>
-      <tags>
-        <tag>redis</tag>
-      </tags>
   </entry>
 </search>
