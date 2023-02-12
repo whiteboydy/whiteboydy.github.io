@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nginx - whiteboy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+Nginx 是高性能的 HTTP 和反向代理的服务器，处理高并发能力是十分强大的，能经受高负载的考验，有报告表明能支持高达 50,000 个并发连接数。
+反向代理正向代理
+Nginx 不仅可以做反,"> 
+    
+    <link rel="alternative" href="atom.xml" title="whiteboy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Nginx - whiteboy"/>
+    <meta name="twitter:description" content="
+Nginx 是高性能的 HTTP 和反向代理的服务器，处理高并发能力是十分强大的，能经受高负载的考验，有报告表明能支持高达 50,000 个并发连接数。
+反向代理正向代理
+Nginx 不仅可以做反,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="whiteboy"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Nginx - whiteboy"/>
+    <meta property="og:description" content="
+Nginx 是高性能的 HTTP 和反向代理的服务器，处理高并发能力是十分强大的，能经受高负载的考验，有报告表明能支持高达 50,000 个并发连接数。
+反向代理正向代理
+Nginx 不仅可以做反,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">whiteboy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Nginx</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Nginx</h1>
+        <div class="stuff">
+            <span>一月 24, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<p><em><strong>Nginx</strong></em> 是高性能的 <em><strong>HTTP</strong></em> 和反向代理的服务器，处理高并发能力是十分强大的，能经受高负载的考验，有报告表明能支持高达 50,000 个并发连接数。</p>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p><strong>正向代理</strong></p>
+<p><em><strong>Nginx</strong></em> 不仅可以做反向代理，实现负载均衡。还能用作正向代理来进行上网等功能。 正向代理：如果把局域网外的 <em><strong>Internet</strong></em> 想象成一个巨大的资源库，则局域网中的客户端要访问 <em><strong>Internet</strong></em>，则需要通过代理服务器来访问，这种代理服务就称为正向代理。</p>
+<p><u>需要在客户端配置代理服务器进行指定网站访问</u>。</p>
+<p><img src="/2023/01/24/Nginx/20211022162954.png" alt="20211022162954"></p>
+<p><strong>反向代理</strong></p>
+<p>反向代理，其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，<u>暴露的是代理服务器地址，隐藏了真实服务器 <em><strong>IP</strong></em> 地址</u>。</p>
+<img src="/2023/01/24/Nginx/20211022163509.png" style="zoom:50%;">
+
+
+
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>单一模式</strong></p>
+<p><img src="/2023/01/24/Nginx/20211022164011.png" alt="20211022164011"></p>
+<p><strong>负载均衡</strong></p>
+<p>增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，即负载均衡。</p>
+<p><img src="/2023/01/24/Nginx/20211022164555.png" alt="20211022164555"></p>
+<h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。</p>
+<p><img src="/2023/01/24/Nginx/20211022164918.png" alt="20211022164918"></p>
+<h1 id="安装和启动"><a href="#安装和启动" class="headerlink" title="安装和启动"></a>安装和启动</h1><p>官网：<a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org/</a></p>
+<blockquote>
+<ol>
+<li>需要安装 <em><strong>gcc-c++</strong></em> 编译器</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc-c++</span><br><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装 <em><strong>pcre</strong></em> 包</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y pcre pcre-devel</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装 <em><strong>zlib</strong></em> 包</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib zlib-devel</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>在 <em><strong>&#x2F;opt&#x2F;</strong></em>  下载 <em><strong>nginx</strong></em></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nginx.org/download/nginx-1.19.9.tar.gz</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>解压并进入 <em><strong>nginx</strong></em> 目录</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.19.9.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.19.9</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>使用 <em><strong>nginx</strong></em> 默认配置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>编译安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+
+
+<p>默认安装路径：<code>/usr/local/nginx</code></p>
+<p>启动：<code>cd /usr/local/nginx/sbin</code></p>
+<p>默认启动脚本：<code>./nginx</code></p>
+<p><img src="/2023/01/24/Nginx/20211022170259.png" alt="20211022170259"></p>
+<p>成功启动后可以进行访问：<code>172.16.88.168:80</code>（需要关闭防火墙）</p>
+<p>默认端口：80</p>
+</blockquote>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/nginx/sbin <span class="comment"># 默认安装路径</span></span><br><span class="line"></span><br><span class="line">./nginx -v <span class="comment"># 查看 nginx 版本号 </span></span><br><span class="line"></span><br><span class="line">./nginx <span class="comment"># 启动 nginx</span></span><br><span class="line"></span><br><span class="line">./nginx -s stop <span class="comment"># 停止 nginx </span></span><br><span class="line"></span><br><span class="line">./nginx -s reload <span class="comment"># 重新加载 nginx </span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p><em><strong>nginx.conf</strong></em></p>
+<p>默认路径：***&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf***</p>
+<blockquote>
+<p><em><strong>全局块</strong></em></p>
+<p>主要包括配置运行 <em><strong>Nginx</strong></em> 服务器的用户（组）、允许生成的 <em><strong>worker process</strong></em> 数，进程 <em><strong>PID</strong></em> 存放路径、日志存放路径和类型以及配置文件的引入等。</p>
+<p><img src="/2023/01/24/Nginx/20211022214703.png" alt="20211022214703"></p>
+<p><em><strong>events块</strong></em></p>
+<p><em><strong>events</strong></em> 块涉及的指令主要影响 <em><strong>Nginx</strong></em> 服务器与用户的网络连接，常用的设置包括是否开启对多 <em><strong>work process</strong></em> 下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 <em><strong>word process</strong></em> 可以同时支持的最大连接数等。</p>
+<p><img src="/2023/01/24/Nginx/20211022214811.png" alt="20211022214811"></p>
+<p><em><strong>http块</strong></em></p>
+<p>这算是 <em><strong>Nginx</strong></em> 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。 需要注意的是：<em><strong>http</strong></em> 块也可以包括 <em><strong>http</strong></em> 全局块、<em><strong>server</strong></em> 块。</p>
+<ol>
+<li><p><em><strong>http 全局块</strong></em></p>
+<p><em><strong>http</strong></em> 全局块配置的指令包括文件引入、<em><strong>MIME-TYPE</strong></em> 定义、日志自定义、连接超时时间、单链接请求数上限等。</p>
+</li>
+<li><p><em><strong>server块</strong></em></p>
+<p>这块和虚拟主机有密切关系，虚拟主机从用户角度看，和一台独立的硬件主机是完全一样的，该技术的产生是为了 节省互联网服务器硬件成本。</p>
+<p>每个 <em><strong>http</strong></em> 块可以包括多个 <em><strong>server</strong></em> 块，而每个 <em><strong>server</strong></em> 块就相当于一个虚拟主机。 而每个 <em><strong>server</strong></em> 块也分为全局 <em><strong>server</strong></em> 块，以及可以同时包含多个 <em><strong>locaton</strong></em> 块。</p>
+<ol>
+<li><p><em><strong>全局 server 块</strong></em></p>
+<p>最常见的配置是本虚拟机主机的监听配置和本虚拟主机的名称或 IP 配置。</p>
+</li>
+<li><p><em><strong>location 块</strong></em></p>
+<p>一个 <em><strong>server</strong></em> 块可以配置多个 <em><strong>location</strong></em> 块。</p>
+<p>这块的主要作用是基于 <em><strong>Nginx</strong></em> 服务器接收到的请求字符串（例如 <em><strong>server_name&#x2F;uri-string</strong></em>），对虚拟主机名称（也可以是 <em><strong>IP</strong></em> 别名）之外的字符串（例如 前面的 <em><strong>&#x2F;uri-string</strong></em>）进行匹配，对特定的请求进行处理。地址定向、数据缓 存和应答控制等功能，还有许多第三方模块的配置也在这里进行。</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="/2023/01/24/Nginx/20211022214847.png" alt="20211022214847"></p>
+</blockquote>
+<h2 id="反向代理-1"><a href="#反向代理-1" class="headerlink" title="反向代理"></a>反向代理</h2><h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例 1"></a>案例 1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实现效果：使用 nginx 进行反向代理，访问 www.test.com 直接跳转到 127.0.0.1:8080</span><br></pre></td></tr></table></figure>
+
+<p>访问的流程：</p>
+<p><img src="/2023/01/24/Nginx/20211022235512.png" alt="20211022235512"></p>
+<p>如何启动 <em><strong>tomcat</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// tomcat安装路径bin目录</span><br><span class="line">// 默认端口8080</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>本地 <em><strong>hosts</strong></em> 文件进行域名和 <em><strong>ip</strong></em> 对应配置</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 最后一行加上</span><br><span class="line"># 虚拟机对应的ip</span><br><span class="line">172.16.88.168 www.test.com</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在 <em><strong>nginx</strong></em> 进行请求转发的配置（反向代理配置）</li>
+</ol>
+<p><img src="/2023/01/24/Nginx/20211022235420.png" alt="20211022235420"></p>
+<ol start="3">
+<li>启动 <em><strong>nginx</strong></em></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 默认路径 /usr/local/nginx/sbin/</span><br><span class="line">./nginx -c /opt/etc/nginx.conf # 配置文件的路径</span><br></pre></td></tr></table></figure>
+
+
+
+<p>最终：访问 <code>wwww.test.com</code> 跳转到 <em><strong>tomcat</strong></em> 成功启动页面。</p>
+<p><img src="/2023/01/24/Nginx/20211022235621.png" alt="20211022235621"></p>
+<hr>
+<h4 id="案例-2"><a href="#案例-2" class="headerlink" title="案例 2"></a>案例 2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">实现效果：</span><br><span class="line">使用 nginx 反向代理，根据访问的路径跳转到不同端口的服务中 nginx 监听端口为 9001</span><br><span class="line">访问 http://172.16.88.168:9001/edu/ 直接跳转到 127.0.0.1:8080</span><br><span class="line">访问 http://172.16.88.168:9001/vod/ 直接跳转到 127.0.0.1:8081</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>准备两个 <em><strong>tomcat</strong></em> 服务器（略）</p>
+</li>
+<li><p>配置 <em><strong>nginx.conf</strong></em></p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">     listen       9001;</span><br><span class="line">     server_name  172.16.88.168;</span><br><span class="line"></span><br><span class="line">     location ~ /edu/ &#123;</span><br><span class="line">         proxy_pass http://127.0.0.1:8080;</span><br><span class="line">     &#125;</span><br><span class="line">     location ~ /vod/ &#123;</span><br><span class="line">         proxy_pass http://127.0.0.1:8081;</span><br><span class="line">     &#125;</span><br><span class="line">		...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="proxy-pass"><a href="#proxy-pass" class="headerlink" title="proxy_pass"></a><em>proxy_pass</em></h3><blockquote>
+<p>格式： <em><strong>proxy_pass URL</strong></em></p>
+<p>URL包含：传输协议、主机名、<em><strong>uri</strong></em></p>
+</blockquote>
+<p><em><strong>url</strong></em> 的 &#x2F; 问题</p>
+<blockquote>
+<p>在 <em><strong>nginx</strong></em> 中配置 <em><strong>proxy_pass</strong></em> 时，当在后面的 <em><strong>url</strong></em> 加上了&#x2F;，相当于是绝对根路径，则 <em><strong>nginx</strong></em> 不会把 <em><strong>location</strong></em> 中匹配的路径部分代理；</p>
+<p>如果没有 &#x2F;，则会把匹配的路径部分也给代理。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">假设 server_name:192.168.1.10</span><br><span class="line">		请求:http://192.168.1.10/a/a.html</span><br><span class="line"></span><br><span class="line">示例1：</span><br><span class="line">location /a/</span><br><span class="line">&#123;</span><br><span class="line">    proxy_pass http://192.168.1.10;</span><br><span class="line">    ...</span><br><span class="line">&#125;结果1：http://192.168.1.10/a/a.html</span><br><span class="line"></span><br><span class="line">示例2：</span><br><span class="line">location /a/</span><br><span class="line">&#123;</span><br><span class="line">    proxy_pass http://192.168.1.10/;</span><br><span class="line">    ...</span><br><span class="line">&#125;结果2：http://192.168.1.10/a.html</span><br><span class="line"></span><br><span class="line">示例3：</span><br><span class="line">location /a/</span><br><span class="line">&#123;</span><br><span class="line">    proxy_pass http://192.168.1.10/nanase;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">结果3：http://192.168.1.10/nanasea.html</span><br><span class="line"></span><br><span class="line">示例4：</span><br><span class="line">location /a/</span><br><span class="line">&#123;</span><br><span class="line">    proxy_pass http://192.168.1.10/nanase/;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">结果4：http://192.168.1.10/nanase/a.html</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong><u>为了方便记忆和规范配置，建议所有的 <em>proxy_pass</em> 后的 <em>url</em> 都以 &#x2F; 结尾。</u></strong></p>
+<h3 id="location"><a href="#location" class="headerlink" title="location"></a><em>location</em></h3><p>该指令用于匹配 <em><strong>URL</strong></em>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location [ = | ~ | ~* | ^~ ] uri &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>=</code> </p>
+<p>用于不含正则表达式的 <em><strong>uri</strong></em> 前，要求请求字符串与 <em><strong>uri</strong></em> 严格匹配，如果匹配成功，就停止继续向下搜索并立即处理该请求。</p>
+<p><code>~</code></p>
+<p>用于表示 <em><strong>uri</strong></em> 包含正则表达式，并且区分大小写。</p>
+<p><code>~*</code></p>
+<p>用于表示 <em><strong>uri</strong></em> 包含正则表达式，并且不区分大小写。</p>
+<p><code>^~</code></p>
+<p>用于不含正则表达式的 <em><strong>uri</strong></em> ，要求 <em><strong>Nginx</strong></em> 服务器找到标识 <em><strong>uri</strong></em> 和请求 符串匹配度最高的 <em><strong>location</strong></em> 后，立即使用此 <em><strong>location</strong></em> 处理请求，而不再使用 <em><strong>location</strong></em> 块中的正则 <em><strong>uri</strong></em> 和请求字符串做匹配。</p>
+</blockquote>
+<p><strong><u><em>注意：如果 uri 包含正则表达式，则必须要有 ~ 或者 ~* 标识。</em></u></strong>		 		</p>
+<p>​			 					 					 				</p>
+<h2 id="负载均衡-1"><a href="#负载均衡-1" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>增加服务器的数量，然后将请求分发到各个服务器上面。即将原先请求集中到单个服务器上转化为将请求分发到多个服务器上，将负载分发到不同的服务器，即负载均衡。</p>
+<h4 id="案例-1-1"><a href="#案例-1-1" class="headerlink" title="案例 1"></a>案例 1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实现效果：浏览器地址栏输入地址 http://172.16.88.168/edu/a.html，负载均衡效果，平均分担 8080 和 8081 端口中。</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>准备两个 <em><strong>tomcat</strong></em> 服务器（略）</li>
+<li>配置 <em><strong>nginx.conf</strong></em> 文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">	...</span><br><span class="line">	upsteam myserver &#123;</span><br><span class="line">		ip_hash;</span><br><span class="line">		server 172.16.88.168:8080 weight=1;</span><br><span class="line">		server 172.16.88.168:8081 weight=1;</span><br><span class="line">	&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  172.16.88.168;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://myserver;</span><br><span class="line">            root html;</span><br><span class="line">            index index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"> 				...</span><br><span class="line"> 		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="分配策略"><a href="#分配策略" class="headerlink" title="分配策略"></a>分配策略</h3><ul>
+<li><p><em><strong>轮询</strong></em>（默认）<br>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器 <em><strong>down</strong></em> 掉，能自动剔除。</p>
+</li>
+<li><p><em><strong>weight</strong></em><br><em><strong>weight</strong></em> 代表权重默认为 1，权重越高被分配的客户端越多。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream server_pool &#123;</span><br><span class="line">	server 192.168.5.21 weight=10; </span><br><span class="line">	server 192.168.5.22 weight=10; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><em><strong>ip_hash</strong></em><br>每个请求按访问 <em><strong>ip</strong></em> 的 <em><strong>hash</strong></em> 结果分配，这样每个访客固定访问一个后端服务器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream server_pool &#123;</span><br><span class="line">	ip_hash;</span><br><span class="line">	server 192.168.5.21:80; </span><br><span class="line">	server 192.168.5.22:80; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><em><strong>fair</strong></em>（第三方） 按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream server_pool &#123; </span><br><span class="line">	server 192.168.5.21:80; </span><br><span class="line">	server 192.168.5.22:80; </span><br><span class="line">	fair;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="动静分离-1"><a href="#动静分离-1" class="headerlink" title="动静分离"></a>动静分离</h2><p><em><strong>Nginx</strong></em> 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和 静态页面物理分离。</p>
+<p>一种是纯粹把静态文件独立成单独的域名，放在独立的服务器上，也是目前主流推崇的方案。</p>
+<p>另外一种方法就是动态跟静态文件混合在一起发布，通过 <em><strong>nginx</strong></em> 来分开。</p>
+<p><img src="/2023/01/24/Nginx/20211027141844.png" alt="20211027141844"></p>
+<h4 id="案例-1-2"><a href="#案例-1-2" class="headerlink" title="案例 1"></a>案例 1</h4><ol>
+<li>在 <em><strong>linux</strong></em> 系统中准备静态资源，用于进行访问</li>
+<li>配置 <em><strong>nginx</strong></em> 文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">     listen       80;</span><br><span class="line">     server_name  172.16.88.168;</span><br><span class="line"></span><br><span class="line">     location /html/ &#123;</span><br><span class="line">     	root /data/;</span><br><span class="line">     	index index.html index.htm;</span><br><span class="line">     	# 访问 /data/html/.*html</span><br><span class="line">     &#125;</span><br><span class="line">     location /image/ &#123;</span><br><span class="line">     	root /data/;</span><br><span class="line">     	autoindex on; # 列出文件目录</span><br><span class="line">     &#125;</span><br><span class="line">		...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="高可用集群"><a href="#高可用集群" class="headerlink" title="高可用集群"></a>高可用集群</h2><p><img src="/2023/01/24/Nginx/20211027142139.png" alt="20211027142139"></p>
+<p>即主服务器宕机，启动备用服务器。</p>
+<h4 id="案例-1-3"><a href="#案例-1-3" class="headerlink" title="案例 1"></a>案例 1</h4><p><em><strong>keepalive + nginx</strong></em></p>
+<p><strong>高可用集群（主从模式）</strong></p>
+<ol>
+<li><p>准备两台服务器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">服务器ip：</span><br><span class="line">	192.168.17.128</span><br><span class="line">	192.168.17.131</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>两台服务器安装 <em><strong>keepalive</strong></em> 和 <em><strong>nginx</strong></em> （略）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install keepalive-y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成高可用配置（主从模式）</p>
+<p>在 <code>/usr/local/src/</code> 添加检测脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">A=`ps -C nginx –no-header |<span class="built_in">wc</span> -l` <span class="keyword">if</span> [ <span class="variable">$A</span> -eq 0 ];<span class="keyword">then</span></span><br><span class="line">/usr/local/nginx/sbin/nginx</span><br><span class="line"><span class="built_in">sleep</span> 2</span><br><span class="line"><span class="keyword">if</span> [ `ps -C nginx --no-header |<span class="built_in">wc</span> -l` -eq 0 ];<span class="keyword">then</span></span><br><span class="line">        killall keepalived</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>配置主服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 主要修改 keepalive 配置文件</span></span><br><span class="line"><span class="comment"># /etc/keepalived/keepalived.conf</span></span><br><span class="line"><span class="comment"># 主和备服务器修改不同地方</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 全局配置</span></span><br><span class="line">global_defs &#123;</span><br><span class="line">	notification_email &#123; </span><br><span class="line">		acassen@firewall.loc </span><br><span class="line">		failover@firewall.loc </span><br><span class="line">		sysadmin@firewall.loc</span><br><span class="line">&#125;</span><br><span class="line">	notification_email_from </span><br><span class="line">	Alexandre.Cassen@firewall.loc smtp_server 192.168.17.129</span><br><span class="line">	smtp_connect_timeout 30</span><br><span class="line">	router_id LVS_DEVEL <span class="comment"># 访问主机服务器名字</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 脚本配置</span></span><br><span class="line">vrrp_script chk_http_port &#123; </span><br><span class="line">	script <span class="string">&quot;/usr/local/src/nginx_check.sh&quot;</span> <span class="comment"># 脚本</span></span><br><span class="line">	interval 2 <span class="comment"># 检测脚本执行的间隔</span></span><br><span class="line">	weight 2 <span class="comment"># 设置当前服务器的权重</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 虚拟ip配置</span></span><br><span class="line">vrrp_instance VI_1 &#123; </span><br><span class="line">	state MASTER <span class="comment"># 主服务器：MASTER 备份服务器：BACKUP </span></span><br><span class="line">	interface ens33 <span class="comment"># 网卡</span></span><br><span class="line">	virtual_router_id 51 <span class="comment"># 主备机的id必须相同</span></span><br><span class="line">	priority 100 <span class="comment"># 优先级；主机值较大，备份机值较小 </span></span><br><span class="line">	advert_int 1 <span class="comment"># 时间间隔检测</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 权限</span></span><br><span class="line">	authentication &#123; </span><br><span class="line">		auth_type PASS</span><br><span class="line">		auth_pass 1111 </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 虚拟ip</span></span><br><span class="line">	virtual_ipaddress &#123;</span><br><span class="line">		192.168.17.50 <span class="comment"># VRRP H 虚拟地址</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 <em><strong>nginx</strong></em> 和 <em><strong>keepalived</strong></em> 服务</p>
+</li>
+</ol>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="master-amp-worker"><a href="#master-amp-worker" class="headerlink" title="master&amp;worker"></a>master&amp;worker</h2><p><img src="/2023/01/24/Nginx/20211027144904.png" alt="20211027144904"></p>
+<h2 id="worker如何工作"><a href="#worker如何工作" class="headerlink" title="worker如何工作"></a>worker如何工作</h2><img src="https://gitee.com/tsuiraku/typora/raw/master/img/%E6%88%AA%E5%B1%8F2021-10-27%2014.59.12.png" style="zoom:50%;">
+
+
+
+<h2 id="一个master多个worker"><a href="#一个master多个worker" class="headerlink" title="一个master多个worker"></a>一个master多个worker</h2><ul>
+<li>可以使用 <em><strong>nginx –s reload</strong></em> 热部署，利用 <em><strong>nginx</strong></em> 进行热部署操作；</li>
+<li>每个 <em><strong>woker</strong></em> 是独立的进程，如果有其中的一个 <em><strong>woker</strong></em> 出现问题，其他 <em><strong>woker</strong></em> 独立的， 继续进行争抢，实现请求过程，不会造成服务中断。</li>
+</ul>
+<h2 id="worker的数量"><a href="#worker的数量" class="headerlink" title="worker的数量"></a>worker的数量</h2><p><em><strong>nginx</strong></em> 类似 <em><strong>redis</strong></em> 都采用 <em><strong>io</strong></em> 多路复用机制，每个 <em><strong>worker</strong></em> 都是一个独立的进程。</p>
+<p>即 <em><strong>worker</strong></em> 数量和服务器的 <em><strong>cpu</strong></em> 数量相等最合适。</p>
+<h2 id="连接数worker-connection"><a href="#连接数worker-connection" class="headerlink" title="连接数worker_connection"></a>连接数worker_connection</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一个：发送请求，占用了 woker 的几个连接数? </span><br><span class="line"></span><br><span class="line">答案: 2 或者 4 </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">第二个：nginx 有一个 master，有 4 个 woker，每个 woker 支持最大的连接数 1024，支持的最大并发数是多少?</span><br><span class="line"></span><br><span class="line">worker支持的最大连接数：4 * 1024</span><br><span class="line"></span><br><span class="line">普通的静态访问最大并发数是：</span><br><span class="line">	worker_connections * worker_processes / 2</span><br><span class="line">	1024 * 4 / 2</span><br><span class="line"></span><br><span class="line">而如果是 HTTP 作 为反向代理来说，最大并发数量应该是：</span><br><span class="line">	worker_connections * worker_processes / 4</span><br><span class="line">	1024 * 4 / 4</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zJ411w7SV?from=search&seid=5693495616515059218&spm_id_from=333.337.0.0">https://www.bilibili.com/video/BV1zJ411w7SV?from=search&amp;seid=5693495616515059218&amp;spm_id_from=333.337.0.0</a>)</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="https://t4.kugou.com/song.html?id=6t0phb5B8V3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="https://t4.kugou.com/song.html?id=6t0phb5B8V3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
