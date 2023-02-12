@@ -18,6 +18,8 @@ Nginx 不仅可以做反,">
     <link rel="alternative" href="atom.xml" title="whiteboy" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
     
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
     
     
     <meta name="twitter:card" content="summary"/>
@@ -71,7 +73,7 @@ Nginx 不仅可以做反,"/>
     <div class='main'>
         <h1 class="title">Nginx</h1>
         <div class="stuff">
-            <span>一月 24, 2023</span>
+            <span>十二月 25, 2022</span>
             
   <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/nginx/" rel="tag">nginx</a></li></ul>
 
@@ -83,20 +85,20 @@ Nginx 不仅可以做反,"/>
 <h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p><strong>正向代理</strong></p>
 <p><em><strong>Nginx</strong></em> 不仅可以做反向代理，实现负载均衡。还能用作正向代理来进行上网等功能。 正向代理：如果把局域网外的 <em><strong>Internet</strong></em> 想象成一个巨大的资源库，则局域网中的客户端要访问 <em><strong>Internet</strong></em>，则需要通过代理服务器来访问，这种代理服务就称为正向代理。</p>
 <p><u>需要在客户端配置代理服务器进行指定网站访问</u>。</p>
-<p><img src="/2023/01/24/Nginx/20211022162954.png" alt="20211022162954"></p>
+<p><img src="/2022/12/25/Nginx/20211022162954.png" alt="20211022162954"></p>
 <p><strong>反向代理</strong></p>
 <p>反向代理，其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，<u>暴露的是代理服务器地址，隐藏了真实服务器 <em><strong>IP</strong></em> 地址</u>。</p>
-<img src="/2023/01/24/Nginx/20211022163509.png" style="zoom:50%;">
+<img src="/2022/12/25/Nginx/20211022163509.png" style="zoom:50%;">
 
 
 
 <h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p><strong>单一模式</strong></p>
-<p><img src="/2023/01/24/Nginx/20211022164011.png" alt="20211022164011"></p>
+<p><img src="/2022/12/25/Nginx/20211022164011.png" alt="20211022164011"></p>
 <p><strong>负载均衡</strong></p>
 <p>增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，即负载均衡。</p>
-<p><img src="/2023/01/24/Nginx/20211022164555.png" alt="20211022164555"></p>
+<p><img src="/2022/12/25/Nginx/20211022164555.png" alt="20211022164555"></p>
 <h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。</p>
-<p><img src="/2023/01/24/Nginx/20211022164918.png" alt="20211022164918"></p>
+<p><img src="/2022/12/25/Nginx/20211022164918.png" alt="20211022164918"></p>
 <h1 id="安装和启动"><a href="#安装和启动" class="headerlink" title="安装和启动"></a>安装和启动</h1><p>官网：<a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org/</a></p>
 <blockquote>
 <ol>
@@ -139,7 +141,7 @@ Nginx 不仅可以做反,"/>
 <p>默认安装路径：<code>/usr/local/nginx</code></p>
 <p>启动：<code>cd /usr/local/nginx/sbin</code></p>
 <p>默认启动脚本：<code>./nginx</code></p>
-<p><img src="/2023/01/24/Nginx/20211022170259.png" alt="20211022170259"></p>
+<p><img src="/2022/12/25/Nginx/20211022170259.png" alt="20211022170259"></p>
 <p>成功启动后可以进行访问：<code>172.16.88.168:80</code>（需要关闭防火墙）</p>
 <p>默认端口：80</p>
 </blockquote>
@@ -155,10 +157,10 @@ Nginx 不仅可以做反,"/>
 <blockquote>
 <p><em><strong>全局块</strong></em></p>
 <p>主要包括配置运行 <em><strong>Nginx</strong></em> 服务器的用户（组）、允许生成的 <em><strong>worker process</strong></em> 数，进程 <em><strong>PID</strong></em> 存放路径、日志存放路径和类型以及配置文件的引入等。</p>
-<p><img src="/2023/01/24/Nginx/20211022214703.png" alt="20211022214703"></p>
+<p><img src="/2022/12/25/Nginx/20211022214703.png" alt="20211022214703"></p>
 <p><em><strong>events块</strong></em></p>
 <p><em><strong>events</strong></em> 块涉及的指令主要影响 <em><strong>Nginx</strong></em> 服务器与用户的网络连接，常用的设置包括是否开启对多 <em><strong>work process</strong></em> 下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 <em><strong>word process</strong></em> 可以同时支持的最大连接数等。</p>
-<p><img src="/2023/01/24/Nginx/20211022214811.png" alt="20211022214811"></p>
+<p><img src="/2022/12/25/Nginx/20211022214811.png" alt="20211022214811"></p>
 <p><em><strong>http块</strong></em></p>
 <p>这算是 <em><strong>Nginx</strong></em> 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。 需要注意的是：<em><strong>http</strong></em> 块也可以包括 <em><strong>http</strong></em> 全局块、<em><strong>server</strong></em> 块。</p>
 <ol>
@@ -179,12 +181,12 @@ Nginx 不仅可以做反,"/>
 </ol>
 </li>
 </ol>
-<p><img src="/2023/01/24/Nginx/20211022214847.png" alt="20211022214847"></p>
+<p><img src="/2022/12/25/Nginx/20211022214847.png" alt="20211022214847"></p>
 </blockquote>
 <h2 id="反向代理-1"><a href="#反向代理-1" class="headerlink" title="反向代理"></a>反向代理</h2><h4 id="案例-1"><a href="#案例-1" class="headerlink" title="案例 1"></a>案例 1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实现效果：使用 nginx 进行反向代理，访问 www.test.com 直接跳转到 127.0.0.1:8080</span><br></pre></td></tr></table></figure>
 
 <p>访问的流程：</p>
-<p><img src="/2023/01/24/Nginx/20211022235512.png" alt="20211022235512"></p>
+<p><img src="/2022/12/25/Nginx/20211022235512.png" alt="20211022235512"></p>
 <p>如何启动 <em><strong>tomcat</strong></em></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// tomcat安装路径bin目录</span><br><span class="line">// 默认端口8080</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
 
@@ -198,7 +200,7 @@ Nginx 不仅可以做反,"/>
 <ol start="2">
 <li>在 <em><strong>nginx</strong></em> 进行请求转发的配置（反向代理配置）</li>
 </ol>
-<p><img src="/2023/01/24/Nginx/20211022235420.png" alt="20211022235420"></p>
+<p><img src="/2022/12/25/Nginx/20211022235420.png" alt="20211022235420"></p>
 <ol start="3">
 <li>启动 <em><strong>nginx</strong></em></li>
 </ol>
@@ -207,7 +209,7 @@ Nginx 不仅可以做反,"/>
 
 
 <p>最终：访问 <code>wwww.test.com</code> 跳转到 <em><strong>tomcat</strong></em> 成功启动页面。</p>
-<p><img src="/2023/01/24/Nginx/20211022235621.png" alt="20211022235621"></p>
+<p><img src="/2022/12/25/Nginx/20211022235621.png" alt="20211022235621"></p>
 <hr>
 <h4 id="案例-2"><a href="#案例-2" class="headerlink" title="案例 2"></a>案例 2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">实现效果：</span><br><span class="line">使用 nginx 反向代理，根据访问的路径跳转到不同端口的服务中 nginx 监听端口为 9001</span><br><span class="line">访问 http://172.16.88.168:9001/edu/ 直接跳转到 127.0.0.1:8080</span><br><span class="line">访问 http://172.16.88.168:9001/vod/ 直接跳转到 127.0.0.1:8081</span><br></pre></td></tr></table></figure>
 
@@ -276,7 +278,7 @@ Nginx 不仅可以做反,"/>
 <h2 id="动静分离-1"><a href="#动静分离-1" class="headerlink" title="动静分离"></a>动静分离</h2><p><em><strong>Nginx</strong></em> 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和 静态页面物理分离。</p>
 <p>一种是纯粹把静态文件独立成单独的域名，放在独立的服务器上，也是目前主流推崇的方案。</p>
 <p>另外一种方法就是动态跟静态文件混合在一起发布，通过 <em><strong>nginx</strong></em> 来分开。</p>
-<p><img src="/2023/01/24/Nginx/20211027141844.png" alt="20211027141844"></p>
+<p><img src="/2022/12/25/Nginx/20211027141844.png" alt="20211027141844"></p>
 <h4 id="案例-1-2"><a href="#案例-1-2" class="headerlink" title="案例 1"></a>案例 1</h4><ol>
 <li>在 <em><strong>linux</strong></em> 系统中准备静态资源，用于进行访问</li>
 <li>配置 <em><strong>nginx</strong></em> 文件</li>
@@ -285,7 +287,7 @@ Nginx 不仅可以做反,"/>
 
 
 
-<h2 id="高可用集群"><a href="#高可用集群" class="headerlink" title="高可用集群"></a>高可用集群</h2><p><img src="/2023/01/24/Nginx/20211027142139.png" alt="20211027142139"></p>
+<h2 id="高可用集群"><a href="#高可用集群" class="headerlink" title="高可用集群"></a>高可用集群</h2><p><img src="/2022/12/25/Nginx/20211027142139.png" alt="20211027142139"></p>
 <p>即主服务器宕机，启动备用服务器。</p>
 <h4 id="案例-1-3"><a href="#案例-1-3" class="headerlink" title="案例 1"></a>案例 1</h4><p><em><strong>keepalive + nginx</strong></em></p>
 <p><strong>高可用集群（主从模式）</strong></p>
@@ -306,7 +308,7 @@ Nginx 不仅可以做反,"/>
 <li><p>启动 <em><strong>nginx</strong></em> 和 <em><strong>keepalived</strong></em> 服务</p>
 </li>
 </ol>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="master-amp-worker"><a href="#master-amp-worker" class="headerlink" title="master&amp;worker"></a>master&amp;worker</h2><p><img src="/2023/01/24/Nginx/20211027144904.png" alt="20211027144904"></p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><h2 id="master-amp-worker"><a href="#master-amp-worker" class="headerlink" title="master&amp;worker"></a>master&amp;worker</h2><p><img src="/2022/12/25/Nginx/20211027144904.png" alt="20211027144904"></p>
 <h2 id="worker如何工作"><a href="#worker如何工作" class="headerlink" title="worker如何工作"></a>worker如何工作</h2><img src="https://gitee.com/tsuiraku/typora/raw/master/img/%E6%88%AA%E5%B1%8F2021-10-27%2014.59.12.png" style="zoom:50%;">
 
 
@@ -348,14 +350,14 @@ Nginx 不仅可以做反,"/>
         
         
     <div id="gitalk-container" class="comment link"
-		data-enable="false"
+		data-enable="true"
         data-ae="false"
-        data-ci=""
-        data-cs=""
-        data-r=""
-        data-o=""
-        data-a=""
-        data-d="false"
+        data-ci="812bbb0ed2ba469c6bf7"
+        data-cs="e6fffd17dbc529c3dec772af16b7c0d1746bfde7"
+        data-r="whiteboydy.github.io"
+        data-o="whiteboydy"
+        data-a="whiteboydy"
+        data-d="true"
     >查看评论</div>
 
 
@@ -367,6 +369,8 @@ Nginx 不仅可以做反,"/>
     </div>
 </div>
 </body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
