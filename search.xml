@@ -253,7 +253,7 @@
 </ul>
 ]]></content>
       <tags>
-        <tag>nginx</tag>
+        <tag>Nginx</tag>
       </tags>
   </entry>
   <entry>
@@ -1056,8 +1056,11 @@
 <li><a href="https://www.bilibili.com/video/BV1Rv41177Af">https://www.bilibili.com/video/BV1Rv41177Af</a>)</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>缓存</category>
+      </categories>
       <tags>
-        <tag>redis</tag>
+        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
@@ -2272,8 +2275,12 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
       <tags>
         <tag>JVM</tag>
+        <tag>垃圾回收</tag>
       </tags>
   </entry>
 </search>
