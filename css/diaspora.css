@@ -345,7 +345,8 @@ body.mu .image-logo {
     height: 50px;
     text-align: center;
     border-bottom: 1px solid #f7f7f7;
-    background: #fefefe;
+    /*background: #fefefe;*/
+    background: #ffeeee;
     width: 100%;
     position: fixed;
     top: 0;
@@ -481,7 +482,8 @@ body.touch .scrollbar {
     position: fixed;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, .97);
+    /*background: rgba(255, 255, 255, .97);*/
+    background: rgb(17 17 17 / 96%);
     z-index: 3;
     top: -100%;
     -webkit-transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1012,7 +1014,7 @@ h1.title {
     width: 100%;
     height: 100%;
     z-index: 5;
-    background: #fff;
+    background: #111014;
     left: 100%;
     -moz-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
     -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
